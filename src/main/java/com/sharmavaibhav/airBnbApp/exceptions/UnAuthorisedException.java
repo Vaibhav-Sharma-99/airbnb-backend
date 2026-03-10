@@ -1,0 +1,8 @@
+package com.sharmavaibhav.airBnbApp.exceptions;
+
+public class UnAuthorisedException extends RuntimeException{
+
+    public UnAuthorisedException(String message) {
+        super(message);
+    }
+}
