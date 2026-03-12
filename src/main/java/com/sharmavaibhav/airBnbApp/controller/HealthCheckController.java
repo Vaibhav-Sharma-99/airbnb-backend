@@ -11,6 +11,11 @@ public class HealthCheckController {
 
     @GetMapping("/")
     public ResponseEntity<String> healthCheckController(){
+        System.out.println("Just printing some");
         return ResponseEntity.ok("OK");
+    }
+
+    public void randomPracticeMethod(){
+        System.out.println("This is just a Practice method");
     }
 }
