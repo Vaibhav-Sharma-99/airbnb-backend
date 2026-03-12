@@ -13,4 +13,9 @@ public class HealthCheckController {
     public ResponseEntity<String> healthCheckController(){
         return ResponseEntity.ok("OK");
     }
+
+
+    public void helperMethod(){
+        System.out.println("This is just a helper method--- it does nothinggg");
+    }
 }
