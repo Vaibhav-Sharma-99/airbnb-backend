@@ -19,6 +19,6 @@ public class HealthCheckController {
     }
 
     public void randomPracticeMethod(){
-        System.out.println("This is just a Practice method");
+        System.out.println("This is just a Practice methods");
     }
 }
