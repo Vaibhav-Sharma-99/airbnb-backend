@@ -10,7 +10,6 @@ import com.sharmavaibhav.airBnbApp.entity.enums.BookingStatus;
 import com.sharmavaibhav.airBnbApp.exceptions.ResourceNotFoundException;
 import com.sharmavaibhav.airBnbApp.exceptions.UnAuthorisedException;
 import com.sharmavaibhav.airBnbApp.repository.*;
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
