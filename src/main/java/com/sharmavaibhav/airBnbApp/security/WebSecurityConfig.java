@@ -22,7 +22,7 @@ public class WebSecurityConfig {
     private final JWTAuthFilter jwtAuthFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity
                 .csrf(csrfConfig -> csrfConfig.disable())
@@ -35,8 +35,6 @@ public class WebSecurityConfig {
                                 .requestMatchers("/bookings").authenticated()
                                 .anyRequest().permitAll()
                         );
-
-
         return httpSecurity.build();
 
     }
