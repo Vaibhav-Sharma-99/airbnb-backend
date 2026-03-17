@@ -4,7 +4,6 @@ package com.sharmavaibhav.airBnbApp.service;
 import com.sharmavaibhav.airBnbApp.dto.HotelDto;
 import com.sharmavaibhav.airBnbApp.dto.HotelInfoDto;
 import com.sharmavaibhav.airBnbApp.entity.Hotel;
-import org.jspecify.annotations.Nullable;
 
 public interface HotelService {
 

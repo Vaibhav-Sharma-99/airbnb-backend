@@ -1,6 +1,7 @@
 package com.sharmavaibhav.airBnbApp.repository;
 
 import com.sharmavaibhav.airBnbApp.dto.HotelPriceDto;
+import com.sharmavaibhav.airBnbApp.dto.HotelSearchRequest;
 import com.sharmavaibhav.airBnbApp.entity.Hotel;
 import com.sharmavaibhav.airBnbApp.entity.HotelMinPrice;
 import org.springframework.data.domain.Page;
@@ -14,14 +15,14 @@ import java.util.Optional;
 
 public interface HotelMinPriceRepository extends JpaRepository<HotelMinPrice, Long> {
 
-    @Query("""
-            SELECT new com.sharmavaibhav.airBnbApp.dto.HotelPriceDto(i.hotel, AVG(i.price))
-            FROM HotelMinPrice i
-            WHERE i.hotel.city = :city
-                AND i.date BETWEEN :startDate AND :endDate
-                AND i.hotel.isActive = true
-            GROUP BY i.hotel
-            """)
+//    @Query("""
+//            SELECT new com.sharmavaibhav.airBnbApp.dto.HotelPriceDto(i.hotel, AVG(i.price))
+//            FROM HotelMinPrice i
+//            WHERE i.hotel.city = :city
+//                AND i.date BETWEEN :startDate AND :endDate
+//                AND i.hotel.isActive = true
+//            GROUP BY i.hotel
+//            """)
 //            """
 //              SELECT new com.codingshuttle.projects.airBnbApp.dto.HotelPriceDto(i.hotel, AVG(i.price))
 //            FROM HotelMinPrice i
@@ -31,14 +32,14 @@ public interface HotelMinPriceRepository extends JpaRepository<HotelMinPrice, Lo
 //           GROUP BY i.hotel
 //"""
 
-    Page<HotelPriceDto> findHotelsWithAvailableInventory(
-            @Param("city") String city,
-            @Param("startDate") LocalDate startDate,
-            @Param("endDate") LocalDate endDate,
-            @Param("roomsCount") Integer roomsCount,
-            @Param("dateCount") Long dateCount,
-            Pageable pageable //so result is paginated
-    );
+//    Page<HotelPriceDto> findHotelsWithAvailableInventory(
+//            @Param("city") String city,
+//            @Param("startDate") LocalDate startDate,
+//            @Param("endDate") LocalDate endDate,
+//            @Param("roomsCount") Integer roomsCount,
+//            @Param("dateCount") Long dateCount,
+//            Pageable pageable //so result is paginated
+//    );
 
     Optional<HotelMinPrice> findByHotelAndDate(Hotel hotel, LocalDate date);
 }
