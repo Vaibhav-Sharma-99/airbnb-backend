@@ -2,18 +2,29 @@ package com.sharmavaibhav.airBnbApp.service;
 
 import com.sharmavaibhav.airBnbApp.dto.JokeDto;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.LifecycleState;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.prompt.PromptTemplate;
+import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.stream.IntStream;
 
 @Service
 @RequiredArgsConstructor
 public class AiService {
 
     private final ChatClient chatClient;
+    private final EmbeddingModel embeddingModel; // implemented by openAi and ollama,,...
+
+    public double[] getEmbedding(String text){
+        float []theVector = embeddingModel.embed(text);
+
+        return IntStream.range(0, theVector.length)
+                .mapToDouble(i -> theVector[i]).toArray();
+    }
 
     public String getJoke(String topic){
 
